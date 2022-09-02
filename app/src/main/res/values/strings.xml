@@ -3,5 +3,6 @@
     <string name="txtIntType">정수형</string>
     <string name="txtBooleanType">불린형</string>
     <string name="txtStringType">문자형</string>
+    <string name="txtDoubleDataClass">2중 데이터클래스</string>
     <string name="getData">데이터 받기</string>
 </resources>
