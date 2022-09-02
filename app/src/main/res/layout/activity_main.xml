@@ -28,6 +28,7 @@
             app:layout_constraintTop_toTopOf="parent" />불
 
         <TextView
+            android:id="@+id/txtBooleanType"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/txtBooleanType"
@@ -46,5 +47,24 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnGetInt" />
 
+        <TextView
+            android:id="@+id/txtStringType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/txtStringType"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/btnGetString"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnGetString" />
+
+        <Button
+            android:id="@+id/btnGetString"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/getData"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnGetBoolean" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
