@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class BasicResponse(
     @SerializedName("total_count")
-    val totalCount: Int,
+    val totalCount: Long,
     @SerializedName("incomplete_results")
     val incompleteResults: Boolean,
     val items: List<ItemsData>
