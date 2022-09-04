@@ -7,5 +7,5 @@ data class BasicResponse(
     val totalCount: Long,
     @SerializedName("incomplete_results")
     val incompleteResults: Boolean,
-    val items: List<ItemsData>
+    val items: ArrayList<ItemsData>
 )
