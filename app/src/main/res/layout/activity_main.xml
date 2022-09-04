@@ -8,82 +8,77 @@
         android:padding="30dp"
         tools:context=".view.MainActivity">
 
-        <TextView
-            android:id="@+id/txtIntType"
+        <EditText
+            android:id="@+id/editTxt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/txtIntType"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toBottomOf="@id/btnGetInt"
+            android:layout_marginEnd="10dp"
+            android:hint="@string/editHint"
+            android:singleLine="true"
+            app:layout_constraintBottom_toBottomOf="@id/btnSearch"
+            app:layout_constraintEnd_toStartOf="@+id/btnSearch"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/btnGetInt" />
+            app:layout_constraintTop_toTopOf="@id/btnSearch" />
 
         <Button
-            android:id="@+id/btnGetInt"
+            android:id="@+id/btnSearch"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/getData"
+            android:text="@string/searchData"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />불
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txtBooleanType"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/txtBooleanType"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toBottomOf="@id/btnGetBoolean"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/btnGetBoolean" />
-
-        <Button
-            android:id="@+id/btnGetBoolean"
+            android:id="@+id/txtTotalCount"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/getData"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnGetInt" />
+            android:text="@string/txtLong"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="@id/editTxt"
+            app:layout_constraintTop_toBottomOf="@id/editTxt" />
 
         <TextView
-            android:id="@+id/txtStringType"
+            android:id="@+id/resultTotalCount"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/txtStringType"
+            android:layout_marginStart="10dp"
             android:textColor="@color/black"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toBottomOf="@id/btnGetString"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/btnGetString" />
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="@id/txtTotalCount"
+            app:layout_constraintStart_toEndOf="@id/txtTotalCount"
+            app:layout_constraintTop_toTopOf="@id/txtTotalCount" />
 
-        <Button
-            android:id="@+id/btnGetString"
+        <TextView
+            android:id="@+id/txtIncompleteResults"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/getData"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnGetBoolean" />
+            android:text="@string/txtBoolean"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="@id/editTxt"
+            app:layout_constraintTop_toBottomOf="@id/txtTotalCount" />
 
         <TextView
+            android:id="@+id/resultIncompleteResults"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/txtDoubleDataClass"
+            android:layout_marginStart="10dp"
             android:textColor="@color/black"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toBottomOf="@id/btnDoubleDataClass"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/btnDoubleDataClass" />
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="@id/txtIncompleteResults"
+            app:layout_constraintStart_toEndOf="@id/txtIncompleteResults"
+            app:layout_constraintTop_toTopOf="@id/txtIncompleteResults" />
 
-        <Button
-            android:id="@+id/btnDoubleDataClass"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewMain"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/getData"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnGetString" />
+            app:layout_constraintEnd_toEndOf="@id/btnSearch"
+            app:layout_constraintStart_toStartOf="@+id/editTxt"
+            app:layout_constraintTop_toBottomOf="@+id/txtIncompleteResults" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
