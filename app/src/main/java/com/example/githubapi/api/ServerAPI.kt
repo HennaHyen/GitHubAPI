@@ -1,23 +1,21 @@
 package com.example.githubapi.api
 
-import android.content.Context
-import com.example.githubapi.model.BasicResponse
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class ServerAPI {
     companion object {
-        private val baseUrl = "https://api.github.com"
-        private var retrofit: Retrofit? = null
+        private const val baseUrl = "https://api.github.com"
+        private lateinit var retrofit: Retrofit
 
-        fun getRetrofit(context: Context): Retrofit {
-            if (retrofit == null) {
-                retrofit = Retrofit.Builder()
-                    .baseUrl(baseUrl)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build()
-            }
-            return retrofit!!
+        fun getRetrofit(): Retrofit {
+            retrofit = Retrofit.Builder()
+                .baseUrl(baseUrl)
+                .client(OkHttpClient())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+            return retrofit
         }
     }
 }
