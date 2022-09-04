@@ -11,16 +11,16 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class SearchViewModel : ViewModel() {
+    private lateinit var apiList: APIList
     private val _basicResponse: MutableLiveData<BasicResponse> = MutableLiveData<BasicResponse>()
     val basicResponse: LiveData<BasicResponse> = _basicResponse
-    private lateinit var apiList: APIList
 
     private fun getRetrofit() {
         val retrofit = ServerAPI.getRetrofit()
         apiList = retrofit.create(APIList::class.java)
     }
 
-    fun getSearchList(query: String) {
+    fun getSearchRepositories(query: String) {
         getRetrofit()
         apiList.getSearchRepositories(query).enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
