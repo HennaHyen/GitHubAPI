@@ -4,4 +4,6 @@
     <string name="txtLong">totalCount(Long) :</string>
     <string name="txtBoolean">txtIncompleteResults(Boolean) :</string>
     <string name="searchData">검색</string>
+    <string name="txtInt">ID(Int) :</string>
+    <string name="txtString">Name(String) :</string>
 </resources>
