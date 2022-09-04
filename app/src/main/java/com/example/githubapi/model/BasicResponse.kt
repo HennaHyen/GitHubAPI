@@ -1,11 +1,11 @@
 package com.example.githubapi.model
 
-import java.util.*
+import com.google.gson.annotations.SerializedName
 
 data class BasicResponse(
-    val url: String,
-    val files: FilesData,
-    val truncated: Boolean,
-    val createdAt: Date,
-    val comments: Int
+    @SerializedName("total_count")
+    val totalCount: Int,
+    @SerializedName("incomplete_results")
+    val incompleteResults: Boolean,
+    val items: List<ItemsData>
 )
