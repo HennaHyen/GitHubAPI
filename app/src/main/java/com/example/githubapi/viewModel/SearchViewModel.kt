@@ -15,13 +15,13 @@ class SearchViewModel : ViewModel() {
     private val _basicResponse: MutableLiveData<BasicResponse> = MutableLiveData<BasicResponse>()
     val basicResponse: LiveData<BasicResponse> = _basicResponse
 
-    private fun getRetrofit() {
+    private fun initRetrofit() {
         val retrofit = ServerAPI.getRetrofit()
         apiList = retrofit.create(APIList::class.java)
     }
 
     fun getSearchRepositories(query: String) {
-        getRetrofit()
+        initRetrofit()
         apiList.getSearchRepositories(query).enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 val br = response.body()!! //body는 항상 널이 아니여야하는데 이럴 경우에도 ?를 써야하는지
