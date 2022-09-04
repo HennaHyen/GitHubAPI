@@ -1,6 +1,6 @@
 package com.example.githubapi.viewModel
 
-import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.githubapi.api.APIList
@@ -11,8 +11,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class SearchViewModel : ViewModel() {
-    private val _basicResponse = MutableLiveData<BasicResponse>()
-    val basicResponse = _basicResponse
+    private val _basicResponse: MutableLiveData<BasicResponse> = MutableLiveData<BasicResponse>()
+    val basicResponse: LiveData<BasicResponse> = _basicResponse
     private lateinit var apiList: APIList
 
     private fun getRetrofit() {
@@ -24,17 +24,14 @@ class SearchViewModel : ViewModel() {
         getRetrofit()
         apiList.getSearchRepositories(query).enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-                val br = response.body()
-                val totalCount = br?.totalCount
-                Log.d("__totalCount", totalCount.toString())
-                val boolean = br?.incompleteResults
-                Log.d("__boolean", boolean.toString())
-                val items = br?.items
-                Log.d("__items", items.toString())
+                val br = response.body()!! //body는 항상 널이 아니여야하는데 이럴 경우에도 ?를 써야하는지
+                val totalCount = br.totalCount
+                val boolean = br.incompleteResults
+                val items = br.items
+                _basicResponse.value = BasicResponse(totalCount, boolean, items)
             }
 
             override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
         })
     }
-
 }
