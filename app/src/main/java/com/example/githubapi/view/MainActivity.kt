@@ -41,6 +41,4 @@ class MainActivity : AppCompatActivity() {
             binding.recyclerViewMain.layoutManager = LinearLayoutManager(this)
         }
     }
-
-
 }
