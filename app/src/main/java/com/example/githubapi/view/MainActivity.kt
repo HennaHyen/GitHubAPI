@@ -1,7 +1,7 @@
 package com.example.githubapi.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,6 +11,7 @@ import com.example.githubapi.databinding.ActivityMainBinding
 import com.example.githubapi.viewModel.SearchViewModel
 
 class MainActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityMainBinding
     private lateinit var searchViewModel: SearchViewModel
     private lateinit var adapter: MainRecyclerViewAdapter

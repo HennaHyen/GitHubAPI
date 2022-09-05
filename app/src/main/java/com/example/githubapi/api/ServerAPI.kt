@@ -5,6 +5,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class ServerAPI {
+
     companion object {
         private const val baseUrl = "https://api.github.com"
         private lateinit var retrofit: Retrofit

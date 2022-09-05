@@ -11,10 +11,10 @@ import com.example.githubapi.model.ItemsData
 class MainRecyclerViewAdapter(val items: ArrayList<ItemsData>) :
     RecyclerView.Adapter<MainRecyclerViewAdapter.ItemViewHolder>() {
 
-    inner class ItemViewHolder(view:View) :RecyclerView.ViewHolder(view){
+    inner class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val id = view.findViewById<TextView>(R.id.resultId)
         private val name = view.findViewById<TextView>(R.id.resultName)
-        fun bind(item :ItemsData){
+        fun bind(item: ItemsData) {
             id.text = item.id.toString()
             name.text = item.name
         }
@@ -24,7 +24,8 @@ class MainRecyclerViewAdapter(val items: ArrayList<ItemsData>) :
         parent: ViewGroup,
         viewType: Int
     ): MainRecyclerViewAdapter.ItemViewHolder {
-        val row = LayoutInflater.from(parent.context).inflate(R.layout.item_main_recycler_view, parent, false)
+        val row = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_main_recycler_view, parent, false)
         return ItemViewHolder(row)
     }
 
