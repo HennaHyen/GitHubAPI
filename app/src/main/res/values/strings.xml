@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">GitHubAPI</string>
+    <string name="editHint">검색어 입력</string>
+    <string name="txtLong">totalCount(Long) :</string>
+    <string name="txtBoolean">txtIncompleteResults(Boolean) :</string>
+    <string name="searchData">검색</string>
+    <string name="txtInt">ID(Int) :</string>
+    <string name="txtName">Name(String) :</string>
+    <string name="txtString">Name(String) :</string>
 </resources>
