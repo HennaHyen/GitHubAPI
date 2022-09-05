@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.githubapi.R
 import com.example.githubapi.model.ItemsData
 
-class MainRecyclerViewAdapter(val items: ArrayList<ItemsData>) :
+class MainRecyclerViewAdapter(var items: ArrayList<ItemsData>) :
     RecyclerView.Adapter<MainRecyclerViewAdapter.ItemViewHolder>() {
 
     inner class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -36,5 +36,10 @@ class MainRecyclerViewAdapter(val items: ArrayList<ItemsData>) :
 
     override fun getItemCount(): Int {
         return items.size
+    }
+
+    fun setNewItems(newItems: ArrayList<ItemsData>) {
+        items = newItems
+        notifyDataSetChanged()
     }
 }

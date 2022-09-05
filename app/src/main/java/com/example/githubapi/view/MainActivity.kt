@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.githubapi.Adapter.MainRecyclerViewAdapter
 import com.example.githubapi.R
 import com.example.githubapi.databinding.ActivityMainBinding
+import com.example.githubapi.model.ItemsData
 import com.example.githubapi.viewModel.SearchViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -16,12 +17,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var searchViewModel: SearchViewModel
     private lateinit var adapter: MainRecyclerViewAdapter
+    private var items: ArrayList<ItemsData> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         searchViewModel = ViewModelProvider(this)[SearchViewModel::class.java]
         searchList()
+        initAdapter()
         observerUserViewModel()
     }
 
@@ -42,10 +45,13 @@ class MainActivity : AppCompatActivity() {
         searchViewModel.basicResponse.observe(this) { basic ->
             binding.resultTotalCount.text = basic.totalCount.toString()
             binding.resultIncompleteResults.text = basic.incompleteResults.toString()
-
-            adapter = MainRecyclerViewAdapter(basic.items)
-            binding.recyclerViewMain.adapter = adapter
-            binding.recyclerViewMain.layoutManager = LinearLayoutManager(this)
+            adapter.setNewItems(basic.items)
         }
+    }
+
+    private fun initAdapter() {
+        adapter = MainRecyclerViewAdapter(items)
+        binding.recyclerViewMain.adapter = adapter
+        binding.recyclerViewMain.layoutManager = LinearLayoutManager(this)
     }
 }
