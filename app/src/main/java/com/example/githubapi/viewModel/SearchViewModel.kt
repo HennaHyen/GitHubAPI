@@ -25,12 +25,18 @@ class SearchViewModel : ViewModel() {
         initRetrofit()
 
         gitHubAPI.getSearchRepositories(query).enqueue(object : Callback<SearchResponse> {
-            override fun onResponse(call: Call<SearchResponse>, response: Response<SearchResponse>) {
-                val br = response.body()!! //body는 항상 널이 아니여야하는데 이럴 경우에도 ?를 써야하는지
-                val totalCount = br.totalCount
-                val boolean = br.incompleteResults
-                val items = br.items
-                _searchResponse.value = SearchResponse(totalCount, boolean, items)
+            override fun onResponse(
+                call: Call<SearchResponse>,
+                response: Response<SearchResponse>
+            ) {
+                if (response.isSuccessful && response.body() != null) {
+                    val br = response.body()!!
+                    val totalCount = br.totalCount
+                    val boolean = br.incompleteResults
+                    val items = br.items
+
+                    _searchResponse.value = SearchResponse(totalCount, boolean, items)
+                }
             }
 
             override fun onFailure(call: Call<SearchResponse>, t: Throwable) {}
