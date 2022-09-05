@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observerUserViewModel() {
-        searchViewModel.basicResponse.observe(this) { basic ->
+        searchViewModel.searchResponse.observe(this) { basic ->
             binding.resultTotalCount.text = basic.totalCount.toString()
             binding.resultIncompleteResults.text = basic.incompleteResults.toString()
             adapter.setNewItems(basic.items)
