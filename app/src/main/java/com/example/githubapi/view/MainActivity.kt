@@ -1,6 +1,7 @@
 package com.example.githubapi.view
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -27,6 +28,12 @@ class MainActivity : AppCompatActivity() {
     private fun searchList() {
         binding.btnSearch.setOnClickListener {
             val search = binding.editTxt.text.toString()
+
+            if (search.isEmpty()) {
+                Toast.makeText(this, "검색어를 입력해주세요", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
             searchViewModel.getSearchRepositories(search)
         }
     }
